@@ -8,7 +8,7 @@ That extension just reads the comments from any NS dashboard's source, finds the
 The native NetSuite home page footer looks like this:
  ![](http://i.imgur.com/OrrCn3P.png)
  
-And with the extension, this info is added this:
+And with the extension, this info is added:
 ![](http://i.imgur.com/9ODy42s.png)
 
  Enjoy!
