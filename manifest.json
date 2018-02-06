@@ -3,7 +3,7 @@
   "name": "NetSuite Account Finder",
   "short_name": "NS_Acct_Fndr",
   "description": "This extension displays the NS account number in the footer at the bottom of native NS pages.",
-  "version": "1.0",
+  "version": "2.0",
   "icons": { 
     "16": "icon16.png",
     "48": "icon48.png",

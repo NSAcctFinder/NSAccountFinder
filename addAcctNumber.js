@@ -8,14 +8,27 @@ $.fn.getComments = function () {
     }).get();
 }
 // Find the account number:
+// Examples:
+// <!-- [ 1234567_SB2 ] [ email@email.com ] [ /app/center/card.nl ] [ Tue Feb 06 08:51:24 PST 2018 ] -->
+// <!-- [ 123456 ] [ email@email.com ] [ /app/center/card.nl ] [ Tue Feb 06 08:51:24 PST 2018 ] -->
+// <!-- COMPID [ 1234567 ]  EMAIL [ email@email.com ] URL [ /app/center/card.nl ] Time [ Tue Feb 06 08:52:10 PST 2018 ] -->
+// <!-- COMPID [ 1234567_SB2 ]  EMAIL [ email@email.com ] URL [ /app/center/card.nl ] Time [ Tue Feb 06 08:52:10 PST 2018 ] -->
 var arrComments = $('body').getComments();
 var acctNum = arrComments[arrComments.length-2]
 if (acctNum) {
 	var ind = acctNum.indexOf(']');
 	if (ind) {
-		acctNum = acctNum.substr(3,ind-4);
+		if (acctNum.indexOf('COMPID') > 0) {
+			acctNum = acctNum.substr(10,ind-11);
+		} else {		
+			acctNum = acctNum.substr(3,ind-4);
+		}
 	} else { 
-		acctNum = acctNum.substr(3,9);
+		if (acctNum.indexOf('COMPID') > 0) {
+			acctNum = acctNum.substr(10,9);
+		} else {
+			acctNum = acctNum.substr(3,9);
+		}
 	}
 } else {
 	acctNum = '--Error--';
